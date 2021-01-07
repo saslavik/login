@@ -94,6 +94,7 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         const user = {
+          type: 'registration',
           name: this.name,
           email: this.email,
           password: this.password,
@@ -114,10 +115,16 @@ export default {
       }
     },
     close() {
+      this.password = '';
+      this.repeatPassword = '';
       this.$v.$reset();
       this.$emit('close');
     },
     changeModal() {
+      this.password = '';
+      this.repeatPassword = '';
+      this.notSame = false;
+      this.$v.$reset();
       this.$emit('change');
     },
   },

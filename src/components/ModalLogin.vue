@@ -60,6 +60,7 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         const user = {
+          type: 'login',
           email: this.email,
           password: this.password,
         };
